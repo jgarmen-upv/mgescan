@@ -12,4 +12,4 @@ def check_installed_programs():
         else:
             # Something else went wrong while trying to
             # run `wget`
-           raise
+            raise

@@ -3,7 +3,7 @@
 
 # WARNING: Changes in this tool (particularly as related to parsing) may need
 # to be reflected in galaxy.web.controllers.tool_runner and galaxy.tools
-
+from __future__ import print_function
 
 import codecs
 import errno
@@ -59,7 +59,7 @@ def safe_dict(d):
     http://mellowmachines.com/blog/2009/06/exploding-dictionary-with-unicode-keys-as-python-arguments/
     """
     if isinstance(d, dict):
-        return dict([(k.encode('utf-8'), safe_dict(v)) for k, v in list(d.items())])
+        return dict([(k.encode('utf-8'), safe_dict(v)) for k, v in d.items()])
     elif isinstance(d, list):
         return [safe_dict(x) for x in d]
     else:
@@ -350,7 +350,7 @@ def add_file(dataset, registry, json_file, output_path):
 def add_composite_file(dataset, json_file, output_path, files_path):
     if dataset.composite_files:
         os.mkdir(files_path)
-        for name, value in list(dataset.composite_files.items()):
+        for name, value in dataset.composite_files.items():
             value = util.bunch.Bunch(**value)
             if dataset.composite_file_paths[value.name] is None and not value.optional:
                 file_err('A required composite data file was not provided (%s)' % name, dataset, json_file)

@@ -6,7 +6,7 @@ import glob
 import re
 
 if len(sys.argv) < 3:
-    print(sys.argv[0], "outdir new-GFF-file")
+    print sys.argv[0], "outdir new-GFF-file"
     sys.exit()
 
 def readFASTA(filename):
@@ -14,7 +14,7 @@ def readFASTA(filename):
     f = open(filename)
     lines = f.readlines()
     f.close()
-
+    
     if lines[0][0] != '>':
         sys.exit("Invalid FASTA file: "+filename)
     seq = ""
@@ -35,7 +35,7 @@ def readFASTA(filename):
 
 outfile = open(sys.argv[2], "w")
 #print >>outfile, "##gff-version 3"
-print("track name=nonLTR description=\"MGEScan-nonLTR\" color=255,0,0", file=outfile)
+print >>outfile, "track name=nonLTR description=\"MGEScan-nonLTR\" color=255,0,0"
 
 # Example ltr.out
 
@@ -64,7 +64,7 @@ for cladeDir in glob.glob( os.path.join(sys.argv[1], '*') ):
         seqid = seqid.replace(".fa", "")
         #if seqid[0].isdigit():
         if seqid[:3] != "chr":
-            if seqid.isdigit():
+            if seqid.isdigit():        
                 seqid = "chr" + seqid
         searchObj=re.search(r'([^.]*).([^.]*).([^.]*).([^.]*).([^.]*).fa(.*)',
                 header, re.M|re.I)
@@ -76,7 +76,7 @@ for cladeDir in glob.glob( os.path.join(sys.argv[1], '*') ):
         except:
             pass
         start = int(header[header.rfind("_")+1:])
-        des = [seqid, "MGEScan_nonLTR", "mobile_genetic_element", str(start), str(start+len(seq)), ".", ".", ".", "ID=" + header]
-        print("\t".join(des), file=outfile)
+        des = [seqid, "MGEScan_nonLTR", "mobile_genetic_element", str(start), str(start+len(seq)), ".", ".", ".", "ID=" + header] 
+        print >>outfile, "\t".join(des)
 
 outfile.close()

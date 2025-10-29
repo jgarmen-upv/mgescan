@@ -14,7 +14,7 @@ class PreProcessor:
 
     def call_remove_ltr_and_short_rm_result(self, path):
         return
-    
+
     def call_mask_repeat(self, path, path2):
         return
 
@@ -25,4 +25,3 @@ class PreProcessor:
         #
         # output directory for ?
         return
-

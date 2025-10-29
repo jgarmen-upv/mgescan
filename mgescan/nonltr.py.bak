@@ -22,7 +22,7 @@ from multiprocessing import Process
 from subprocess import Popen, PIPE
 from mgescan.cmd import MGEScan
 from mgescan import utils
-from .biopython import reverse_complement_fasta, getid
+from biopython import reverse_complement_fasta, getid
 import os
 import time
 import shutil
@@ -58,9 +58,9 @@ class nonLTR(MGEScan):
         self.plus_dir = self.genome_dir
         if self.reverseq_enabled :
             # minus_dir used to be genome_dir + "_b"
-            self.minus_dir = self.data_dir + "/_reversed/"
+            self.minus_dir = self.data_dir + "/_reversed/" 
         else:
-            self.minus_dir = self.genome_dir + "/_reversed/"
+            self.minus_dir = self.genome_dir + "/_reversed/" 
 
         self.plus_out_dir = self.data_dir + "/f/"
         self.minus_out_dir = self.data_dir + "/b/"
@@ -98,7 +98,7 @@ class nonLTR(MGEScan):
             self.toGFF()
 
     def forward_strand(self):
-
+        
         mypath = self.plus_dir
         out_dir = self.plus_out_dir
         for (dirpath, dirnames, filenames) in os.walk(mypath):
@@ -111,7 +111,7 @@ class nonLTR(MGEScan):
             new_path = utils.get_abspath(dirpath + "/" + sid)
             os.rename(file_path, new_path)
 
-            command = self.cmd_hmm + (" --dna=%s --out=%s --hmmerv=%s" %
+            command = self.cmd_hmm + (" --dna=%s --out=%s --hmmerv=%s" % 
                     (new_path, out_dir, self.hmmerv))
             command = command.split()
             self.processes.add(Popen(command, stdout=PIPE,
@@ -128,7 +128,7 @@ class nonLTR(MGEScan):
         self.post_processing_after_forward_strand()
 
     def backward_strand(self):
-
+        
         mypath = self.minus_dir
         out_dir = self.minus_out_dir
         for (dirpath, dirnames, filenames) in os.walk(mypath):
@@ -141,7 +141,7 @@ class nonLTR(MGEScan):
             new_path = utils.get_abspath(dirpath + "/" + sid)
             os.rename(file_path, new_path)
 
-            command = self.cmd_hmm + (" --dna=%s --out=%s --hmmerv=%s" %
+            command = self.cmd_hmm + (" --dna=%s --out=%s --hmmerv=%s" % 
                     (new_path, out_dir, self.hmmerv))
             command = command.split()
             self.processes.add(Popen(command, stdout=PIPE,

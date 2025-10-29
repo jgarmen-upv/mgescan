@@ -73,13 +73,13 @@ class nonLTR(object):
                     self.p_data_f, self.p_hmmerv)
             self.run_cmd(cmd)
         else:
-            mypath = self.genome_path
-            for f in os.listdir(mypath):
-                fpath = os.path.join(mypath, f)
-                if os.path.isfile(fpath):
-                    #p = Process(target=self.run_hmm, args=("forward", fpath,))
-                    #p.start()
-                    self.run_hmm("forward", fpath)
+           mypath = self.genome_path
+           for f in os.listdir(mypath):
+               fpath = os.path.join(mypath, f)
+               if os.path.isfile(fpath):
+                   #p = Process(target=self.run_hmm, args=("forward", fpath,))
+                   #p.start()
+                   self.run_hmm("forward", fpath)
 
     def post_process(self, t):
         if t == "forward":
@@ -110,12 +110,12 @@ class nonLTR(object):
                     self.p_data_b, self.p_hmmerv)
             self.run_cmd(cmd)
         else:
-            for f in os.listdir(reverse_path):
-                fpath = os.path.join(reverse_path, f)
-                if os.path.isfile(fpath):
-                    #p = Process(target=self.run_hmm, args=("backward",fpath,))
-                    #p.start()
-                    self.run_hmm("backward",fpath)
+           for f in os.listdir(reverse_path):
+               fpath = os.path.join(reverse_path, f)
+               if os.path.isfile(fpath):
+                   #p = Process(target=self.run_hmm, args=("backward",fpath,))
+                   #p.start()
+                   self.run_hmm("backward",fpath)
 
     def _padding(self, *args):
         res = ""
@@ -139,11 +139,11 @@ class nonLTR(object):
         try:
             retcode = check_call(cmd.split())
             if retcode != 0:
-                print("%s was terminated by signal" % cmd, -retcode, file=sys.stderr)
+                print >>sys.stderr, "%s was terminated by signal" % cmd, -retcode
             #else:
             #    print >>sys.stderr, "Returned", retcode
         except OSError as e:
-            print("Failed:", e, file=sys.stderr)
+            print >>sys.stderr, "Failed:", e
         return retcode
 
     def set_inputs(self):

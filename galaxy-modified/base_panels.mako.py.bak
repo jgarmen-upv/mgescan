@@ -5,8 +5,8 @@ __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 6
 _modified_time = 1392055148.655435
-_template_filename='templates/webapps/galaxy/base_panels.mako'
-_template_uri='/webapps/galaxy/base_panels.mako'
+_template_filename=u'templates/webapps/galaxy/base_panels.mako'
+_template_uri=u'/webapps/galaxy/base_panels.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
 _source_encoding='ascii'
 _exports = ['masthead', 'javascripts', 'late_javascripts', 'get_user_json', 'title']
@@ -22,24 +22,24 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, '/base/base_panels.mako', _template_uri)
+    return runtime._inherit_from(context, u'/base/base_panels.mako', _template_uri)
 def render_body(context,**pageargs):
     context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         __M_writer = context.writer()
         # SOURCE LINE 1
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 4
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 12
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 38
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 55
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 249
-        __M_writer('\n')
+        __M_writer(u'\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -58,9 +58,9 @@ def render_masthead(context):
                 len = context.get('len', UNDEFINED)
                 __M_writer = context.writer()
                 # SOURCE LINE 66
-                __M_writer('\n')
+                __M_writer(u'\n')
                 # SOURCE LINE 69
-                __M_writer('    \n        ')
+                __M_writer(u'    \n        ')
                 # SOURCE LINE 70
 
                 cls = ""
@@ -77,147 +77,147 @@ def render_masthead(context):
                 style = ""
                 if not visible:
                     style = "display: none;"
-
-
+                
+                
                 # SOURCE LINE 85
-                __M_writer('\n        <li class="')
+                __M_writer(u'\n        <li class="')
                 # SOURCE LINE 86
-                __M_writer(str(cls))
-                __M_writer('" style="')
-                __M_writer(str(style))
-                __M_writer('">\n')
+                __M_writer(unicode(cls))
+                __M_writer(u'" style="')
+                __M_writer(unicode(style))
+                __M_writer(u'">\n')
                 # SOURCE LINE 87
                 if href:
                     # SOURCE LINE 88
-                    __M_writer('                <a class="')
-                    __M_writer(str(a_cls))
-                    __M_writer('" data-toggle="dropdown" target="')
-                    __M_writer(str(target))
-                    __M_writer('" href="')
-                    __M_writer(str(href))
-                    __M_writer('">')
-                    __M_writer(str(display))
-                    __M_writer(str(extra))
-                    __M_writer('</a>\n')
+                    __M_writer(u'                <a class="')
+                    __M_writer(unicode(a_cls))
+                    __M_writer(u'" data-toggle="dropdown" target="')
+                    __M_writer(unicode(target))
+                    __M_writer(u'" href="')
+                    __M_writer(unicode(href))
+                    __M_writer(u'">')
+                    __M_writer(unicode(display))
+                    __M_writer(unicode(extra))
+                    __M_writer(u'</a>\n')
                     # SOURCE LINE 89
                 else:
                     # SOURCE LINE 90
-                    __M_writer('                <a class="')
-                    __M_writer(str(a_cls))
-                    __M_writer('" data-toggle="dropdown">')
-                    __M_writer(str(display))
-                    __M_writer(str(extra))
-                    __M_writer('</a>\n')
+                    __M_writer(u'                <a class="')
+                    __M_writer(unicode(a_cls))
+                    __M_writer(u'" data-toggle="dropdown">')
+                    __M_writer(unicode(display))
+                    __M_writer(unicode(extra))
+                    __M_writer(u'</a>\n')
                     pass
                 # SOURCE LINE 92
                 if menu_options:
                     # SOURCE LINE 93
-                    __M_writer('                <ul class="dropdown-menu">\n')
+                    __M_writer(u'                <ul class="dropdown-menu">\n')
                     # SOURCE LINE 94
                     for menu_item in menu_options:
                         # SOURCE LINE 95
                         if not menu_item:
                             # SOURCE LINE 96
-                            __M_writer('                            <li class="divider"></li>\n')
+                            __M_writer(u'                            <li class="divider"></li>\n')
                             # SOURCE LINE 97
                         else:
                             # SOURCE LINE 98
-                            __M_writer('                            <li>\n')
+                            __M_writer(u'                            <li>\n')
                             # SOURCE LINE 99
                             if len ( menu_item ) == 1:
                                 # SOURCE LINE 100
-                                __M_writer('                                ')
-                                __M_writer(str(menu_item[0]))
-                                __M_writer('\n')
+                                __M_writer(u'                                ')
+                                __M_writer(unicode(menu_item[0]))
+                                __M_writer(u'\n')
                                 # SOURCE LINE 101
                             elif len ( menu_item ) == 2:
                                 # SOURCE LINE 102
-                                __M_writer('                                ')
-                                name, link = menu_item
-
-                                __M_writer('\n')
+                                __M_writer(u'                                ')
+                                name, link = menu_item 
+                                
+                                __M_writer(u'\n')
                                 # SOURCE LINE 103
                                 if onclick:
                                     # SOURCE LINE 104
-                                    __M_writer('                                    <a href="')
-                                    __M_writer(str(link))
-                                    __M_writer('" onclick="Galaxy.frame_manager.frame_new({title: \'')
-                                    __M_writer(str(name))
-                                    __M_writer("', type: 'url', content: '")
-                                    __M_writer(str(link))
-                                    __M_writer('\'}); return false;">')
-                                    __M_writer(str(name))
-                                    __M_writer('</a>\n')
+                                    __M_writer(u'                                    <a href="')
+                                    __M_writer(unicode(link))
+                                    __M_writer(u'" onclick="Galaxy.frame_manager.frame_new({title: \'')
+                                    __M_writer(unicode(name))
+                                    __M_writer(u"', type: 'url', content: '")
+                                    __M_writer(unicode(link))
+                                    __M_writer(u'\'}); return false;">')
+                                    __M_writer(unicode(name))
+                                    __M_writer(u'</a>\n')
                                     # SOURCE LINE 105
                                 else:
                                     # SOURCE LINE 106
-                                    __M_writer('                                    <a href="')
-                                    __M_writer(str(link))
-                                    __M_writer('">')
-                                    __M_writer(str(name))
-                                    __M_writer('</a>\n')
+                                    __M_writer(u'                                    <a href="')
+                                    __M_writer(unicode(link))
+                                    __M_writer(u'">')
+                                    __M_writer(unicode(name))
+                                    __M_writer(u'</a>\n')
                                     pass
                                 # SOURCE LINE 108
                             else:
                                 # SOURCE LINE 109
-                                __M_writer('                                ')
-                                name, link, target = menu_item
-
-                                __M_writer('\n                                <a target="')
+                                __M_writer(u'                                ')
+                                name, link, target = menu_item 
+                                
+                                __M_writer(u'\n                                <a target="')
                                 # SOURCE LINE 110
-                                __M_writer(str(target))
-                                __M_writer('" href="')
-                                __M_writer(str(link))
-                                __M_writer('">')
-                                __M_writer(str(name))
-                                __M_writer('</a>\n')
+                                __M_writer(unicode(target))
+                                __M_writer(u'" href="')
+                                __M_writer(unicode(link))
+                                __M_writer(u'">')
+                                __M_writer(unicode(name))
+                                __M_writer(u'</a>\n')
                                 pass
                             # SOURCE LINE 112
-                            __M_writer('                            </li>\n')
+                            __M_writer(u'                            </li>\n')
                             pass
                         pass
                     # SOURCE LINE 115
-                    __M_writer('                </ul>\n')
+                    __M_writer(u'                </ul>\n')
                     pass
                 # SOURCE LINE 117
-                __M_writer('        </li>\n    ')
+                __M_writer(u'        </li>\n    ')
                 return ''
             finally:
                 context.caller_stack._pop_frame()
         _ = context.get('_', UNDEFINED)
         __M_writer = context.writer()
         # SOURCE LINE 58
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 61
-        __M_writer('    <div style="position: relative; right: -50%; float: left;">\n    <div style="display: block; position: relative; right: 50%;">\n\n    <ul class="nav navbar-nav" border="0" cellspacing="0">\n    \n    ')
+        __M_writer(u'    <div style="position: relative; right: -50%; float: left;">\n    <div style="display: block; position: relative; right: 50%;">\n\n    <ul class="nav navbar-nav" border="0" cellspacing="0">\n    \n    ')
         # SOURCE LINE 118
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 121
-        __M_writer('    ')
-        __M_writer(str(tab( "analysis", _("Analyze Data"), h.url_for( controller='/root', action='index' ) )))
-        __M_writer('\n    \n')
+        __M_writer(u'    ')
+        __M_writer(unicode(tab( "analysis", _("Analyze Data"), h.url_for( controller='/root', action='index' ) )))
+        __M_writer(u'\n    \n')
         # SOURCE LINE 124
-        __M_writer('    ')
-        __M_writer(str(tab( "workflow", _("Workflow"), h.url_for( controller='/workflow', action='index' ) )))
-        __M_writer('\n\n')
+        __M_writer(u'    ')
+        __M_writer(unicode(tab( "workflow", _("Workflow"), h.url_for( controller='/workflow', action='index' ) )))
+        __M_writer(u'\n\n')
         # SOURCE LINE 127
-        __M_writer('    ')
+        __M_writer(u'    ')
 
-        menu_options = [
+        menu_options = [ 
                         [ _('Data Libraries'), h.url_for( controller='/library', action='index') ],
                         None,
                         [ _('Published Histories'), h.url_for( controller='/history', action='list_published' ) ],
                         [ _('Published Workflows'), h.url_for( controller='/workflow', action='list_published' ) ],
                         [ _('Published Visualizations'), h.url_for( controller='/visualization', action='list_published' ) ],
                         [ _('Published Pages'), h.url_for( controller='/page', action='list_published' ) ]
-                       ]
+                       ] 
         tab( "shared", _("Shared Data"), h.url_for( controller='/library', action='index'), menu_options=menu_options )
-
-
+            
+        
         # SOURCE LINE 137
-        __M_writer('\n    \n')
+        __M_writer(u'\n    \n')
         # SOURCE LINE 140
-        __M_writer('    ')
+        __M_writer(u'    ')
 
         menu_options = [
                          [ _('Sequencing Requests'), h.url_for( controller='/requests', action='index' ) ],
@@ -225,44 +225,44 @@ def render_masthead(context):
                          [ _('Help'), app.config.get( "lims_doc_url", "http://main.g2.bx.psu.edu/u/rkchak/p/sts" ), "galaxy_main" ]
                        ]
         tab( "lab", "Lab", None, menu_options=menu_options, visible=( trans.user and ( trans.user.requests or trans.app.security_agent.get_accessible_request_types( trans, trans.user ) ) ) )
-
-
+            
+        
         # SOURCE LINE 147
-        __M_writer('\n\n\n                                    \n')
+        __M_writer(u'\n\n\n                                    \n')
         # SOURCE LINE 152
-        __M_writer('    ')
+        __M_writer(u'    ')
 
         menu_options = [
                          [_('New Track Browser'), h.url_for( controller='/visualization', action='trackster' )],
                          [_('Saved Visualizations'), h.url_for( controller='/visualization', action='list' )]
                        ]
         tab( "visualization", _("Visualization"), h.url_for( controller='/visualization', action='list' ), menu_options=menu_options, onclick=True )
-
-
+            
+        
         # SOURCE LINE 158
-        __M_writer('\n\n')
+        __M_writer(u'\n\n')
         # SOURCE LINE 161
         if app.config.get_bool( 'enable_cloud_launch', False ):
             # SOURCE LINE 162
-            __M_writer('        ')
+            __M_writer(u'        ')
 
             menu_options = [
                              [_('New Cloud Cluster'), h.url_for( controller='/cloudlaunch', action='index' ) ],
                            ]
             tab( "cloud", _("Cloud"), h.url_for( controller='/cloudlaunch', action='index'), menu_options=menu_options )
-
-
+                    
+            
             # SOURCE LINE 167
-            __M_writer('\n')
+            __M_writer(u'\n')
             pass
         # SOURCE LINE 169
-        __M_writer('\n')
+        __M_writer(u'\n')
         # SOURCE LINE 171
-        __M_writer('    ')
-        __M_writer(str(tab( "admin", "Admin", h.url_for( controller='/admin', action='index' ), extra_class="admin-only", visible=( trans.user and app.config.is_admin_user( trans.user ) ) )))
-        __M_writer('\n    \n')
+        __M_writer(u'    ')
+        __M_writer(unicode(tab( "admin", "Admin", h.url_for( controller='/admin', action='index' ), extra_class="admin-only", visible=( trans.user and app.config.is_admin_user( trans.user ) ) )))
+        __M_writer(u'\n    \n')
         # SOURCE LINE 174
-        __M_writer('    ')
+        __M_writer(u'    ')
 
         menu_options = []
         if app.config.biostar_url:
@@ -279,21 +279,21 @@ def render_masthead(context):
         if app.config.get( 'terms_url', None ) is not None:
             menu_options.append( [_('Terms and Conditions'), app.config.get( 'terms_url', None ), '_blank'] )
         tab( "help", _("Help"), None, menu_options=menu_options )
-
-
+            
+        
         # SOURCE LINE 190
-        __M_writer('\n    \n')
+        __M_writer(u'\n    \n')
         # SOURCE LINE 193
-        __M_writer('    ')
-
+        __M_writer(u'    ')
+  
         # Menu for user who is not logged in.
         menu_options = [ [ _("Login"), h.url_for( controller='/user', action='login' ), "galaxy_main" ] ]
         if app.config.allow_user_creation:
-            menu_options.append( [ _("Register"), h.url_for( controller='/user', action='create', cntrller='user' ), "galaxy_main" ] )
+            menu_options.append( [ _("Register"), h.url_for( controller='/user', action='create', cntrller='user' ), "galaxy_main" ] ) 
         extra_class = "loggedout-only"
         visible = ( trans.user == None )
         tab( "user", _("User"), None, visible=visible, menu_options=menu_options )
-
+        
         # Menu for user who is logged in.
         if trans.user:
             email = trans.user.email
@@ -315,33 +315,33 @@ def render_masthead(context):
         menu_options.append( [ _('API Keys'), h.url_for( controller='/user', action='api_keys', cntrller='user' ), "galaxy_main" ] )
         if app.config.use_remote_user:
             menu_options.append( [ _('Public Name'), h.url_for( controller='/user', action='edit_username', cntrller='user' ), "galaxy_main" ] )
-
+        
         extra_class = "loggedin-only"
         visible = ( trans.user != None )
         tab( "user", "User", None, visible=visible, menu_options=menu_options )
-
-
+            
+        
         # SOURCE LINE 227
-        __M_writer('\n    \n')
+        __M_writer(u'\n    \n')
         # SOURCE LINE 231
-        __M_writer('    </ul>\n\n    </div>\n    </div>\n    \n')
+        __M_writer(u'    </ul>\n\n    </div>\n    </div>\n    \n')
         # SOURCE LINE 237
-        __M_writer('    <div class="navbar-brand">\n        <a href="')
+        __M_writer(u'    <div class="navbar-brand">\n        <a href="')
         # SOURCE LINE 238
-        __M_writer(str(h.url_for( app.config.get( 'logo_url', '/' ) )))
-        __M_writer('">\n        <img border="0" src="')
+        __M_writer(unicode(h.url_for( app.config.get( 'logo_url', '/' ) )))
+        __M_writer(u'">\n        <img border="0" src="')
         # SOURCE LINE 239
-        __M_writer(str(h.url_for('/static/images/galaxyIcon_noText.png')))
-        __M_writer('">\n        Galaxy / MGEScan\n')
+        __M_writer(unicode(h.url_for('/static/images/galaxyIcon_noText.png')))
+        __M_writer(u'">\n        Galaxy / MGEScan\n')
         # SOURCE LINE 241
         if app.config.brand:
             # SOURCE LINE 242
-            __M_writer('            <span>/ ')
-            __M_writer(str(app.config.brand))
-            __M_writer('</span>\n')
+            __M_writer(u'            <span>/ ')
+            __M_writer(unicode(app.config.brand))
+            __M_writer(u'</span>\n')
             pass
         # SOURCE LINE 244
-        __M_writer('        </a>\n    </div>\n\n    <div class="quota-meter-container"></div>\n\n')
+        __M_writer(u'        </a>\n    </div>\n\n    <div class="quota-meter-container"></div>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -354,16 +354,16 @@ def render_javascripts(context):
         parent = context.get('parent', UNDEFINED)
         __M_writer = context.writer()
         # SOURCE LINE 6
-        __M_writer('\n')
+        __M_writer(u'\n')
         # SOURCE LINE 7
-        __M_writer(str(parent.javascripts()))
-        __M_writer('\n\n<!-- quota meter -->\n')
+        __M_writer(unicode(parent.javascripts()))
+        __M_writer(u'\n\n<!-- quota meter -->\n')
         # SOURCE LINE 10
-        __M_writer(str(h.templates( "helpers-common-templates", "template-user-quotaMeter-quota", "template-user-quotaMeter-usage" )))
-        __M_writer('\n')
+        __M_writer(unicode(h.templates( "helpers-common-templates", "template-user-quotaMeter-quota", "template-user-quotaMeter-usage" )))
+        __M_writer(u'\n')
         # SOURCE LINE 11
-        __M_writer(str(h.js( "mvc/base-mvc", "utils/localization", "mvc/user/user-model", "mvc/user/user-quotameter" )))
-        __M_writer('\n')
+        __M_writer(unicode(h.js( "mvc/base-mvc", "utils/localization", "mvc/user/user-model", "mvc/user/user-quotameter" )))
+        __M_writer(u'\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -377,13 +377,13 @@ def render_late_javascripts(context):
         parent = context.get('parent', UNDEFINED)
         __M_writer = context.writer()
         # SOURCE LINE 40
-        __M_writer('\n')
+        __M_writer(u'\n')
         # SOURCE LINE 41
-        __M_writer(str(parent.late_javascripts()))
-        __M_writer('\n<script type="text/javascript">\n\n    // start a Galaxy namespace for objects created\n    window.Galaxy = window.Galaxy || {};\n\n    // set up the quota meter (And fetch the current user data from trans)\n    Galaxy.currUser = new User( ')
+        __M_writer(unicode(parent.late_javascripts()))
+        __M_writer(u'\n<script type="text/javascript">\n\n    // start a Galaxy namespace for objects created\n    window.Galaxy = window.Galaxy || {};\n\n    // set up the quota meter (And fetch the current user data from trans)\n    Galaxy.currUser = new User( ')
         # SOURCE LINE 48
-        __M_writer(str(get_user_json()))
-        __M_writer(" );\n    Galaxy.quotaMeter = new UserQuotaMeter({\n        model   : Galaxy.currUser,\n        el      : $( document ).find( '.quota-meter-container' )\n    }).render();\n\n</script>\n")
+        __M_writer(unicode(get_user_json()))
+        __M_writer(u" );\n    Galaxy.quotaMeter = new UserQuotaMeter({\n        model   : Galaxy.currUser,\n        el      : $( document ).find( '.quota-meter-container' )\n    }).render();\n\n</script>\n")
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -400,7 +400,7 @@ def render_get_user_json(context):
         trans = context.get('trans', UNDEFINED)
         __M_writer = context.writer()
         # SOURCE LINE 14
-        __M_writer('\n')
+        __M_writer(u'\n')
         # SOURCE LINE 15
 
         """Bootstrapping user API JSON"""
@@ -415,7 +415,7 @@ def render_get_user_json(context):
             try:
                 usage = trans.app.quota_agent.get_usage( trans, history=trans.history )
                 percent = trans.app.quota_agent.get_percent( trans=trans, usage=usage )
-            except AssertionError as assertion:
+            except AssertionError, assertion:
                 # no history for quota_agent.get_usage assertion
                 pass
             user_dict = {
@@ -423,13 +423,13 @@ def render_get_user_json(context):
                 'nice_total_disk_usage' : util.nice_size( usage ),
                 'quota_percent'         : percent
             }
-
-
+        
+        
         # SOURCE LINE 36
-        __M_writer('\n')
+        __M_writer(u'\n')
         # SOURCE LINE 37
-        __M_writer(str(h.to_json_string( user_dict )))
-        __M_writer('\n')
+        __M_writer(unicode(h.to_json_string( user_dict )))
+        __M_writer(u'\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -440,7 +440,9 @@ def render_title(context):
     try:
         __M_writer = context.writer()
         # SOURCE LINE 4
-        __M_writer('Galaxy')
+        __M_writer(u'Galaxy')
         return ''
     finally:
         context.caller_stack._pop_frame()
+
+

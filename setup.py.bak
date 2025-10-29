@@ -3,7 +3,7 @@ import sys
 import time
 import subprocess as sub
 from setuptools import setup
-from setuptools.command.bdist_egg import bdist_egg
+from setuptools.command.bdist_egg import bdist_egg 
 def cmd_exists(cmd):
     return sub.call(["which", cmd], stdout=sub.PIPE, stderr=sub.PIPE) == 0
 
@@ -19,24 +19,24 @@ class MGEScanInstall(bdist_egg):
         if cmd_exists("mpicc"):
             os.system("cd mgescan;mpicc mpi_mgescan.c -o mpi_mgescan")
         else:
-            print(("[Warning] mpicc does not exist. Compile mpi code is"\
-                    + " skipped"))
+            print ("[Warning] mpicc does not exist. Compile mpi code is"\
+                    + " skipped")
             time.sleep(3)
         if not os.environ.get('MGESCAN_HOME'):
-            print(("$MGESCAN_HOME is not defined where MGESCAN will be" + \
-                    " installed."))
-            def_home = eval(input("Would you install MGESCAN at " + \
-                    os.environ.get("HOME") + "/mgescan3 (Y/n)?"))
-            if def_home.lower() == 'n':
-                print(("Run 'export MGESCAN_HOME=<your desired destination" + \
-                        " path to install>' if you want to install somewhere"+\
-                        " else\n"))
-                sys.exit()
-            os.environ['MGESCAN_HOME'] = os.environ.get('HOME') + "/mgescan3"
+             print ("$MGESCAN_HOME is not defined where MGESCAN will be" + \
+                     " installed.")
+             def_home = input("Would you install MGESCAN at " + \
+                     os.environ.get("HOME") + "/mgescan3 (Y/n)?")
+             if def_home.lower() == 'n':
+                 print ("Run 'export MGESCAN_HOME=<your desired destination" + \
+                         " path to install>' if you want to install somewhere"+\
+                         " else\n")
+                 sys.exit()
+             os.environ['MGESCAN_HOME'] = os.environ.get('HOME') + "/mgescan3"
         if os.environ.get('MGESCAN_HOME') and not os.environ.get("MGESCAN_SRC"):
             os.environ['MGESCAN_SRC'] = os.environ.get('MGESCAN_HOME') + "/src"
             if not os.path.exists(os.environ.get("MGESCAN_SRC")):
-                os.makedirs(os.environ.get("MGESCAN_SRC"), 0o755)
+                os.makedirs(os.environ.get("MGESCAN_SRC"), 0755)
         if os.environ.get("MGESCAN_SRC"):
             os.system("cp -pr * $MGESCAN_SRC")
 
@@ -81,3 +81,4 @@ setup(
 
         cmdclass={'bdist_egg': MGEScanInstall},  # override bdist_egg
         )
+

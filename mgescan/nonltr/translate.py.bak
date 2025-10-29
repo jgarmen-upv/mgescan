@@ -50,7 +50,7 @@ class Translate(object):
                         name=seq.name + "_3",
                         description=seq.description)
                     }
-
+ 
         self.p_seqs = results
 
     def write_p_seqs(self, pep_file=None):
@@ -59,7 +59,7 @@ class Translate(object):
         from Bio import SeqIO
         output_handle = open(file, "w")
         tmp = []
-        for id, p_seqs in self.p_seqs.items():
+        for id, p_seqs in self.p_seqs.iteritems():
             tmp.append(p_seqs['_1'])
             tmp.append(p_seqs['_2'])
             tmp.append(p_seqs['_3'])

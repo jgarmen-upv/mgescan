@@ -57,8 +57,8 @@ class MGEScan(object):
         self.ltr_enabled = self.args['ltr']
         self.nonltr_enabled = self.args['nonltr']
         self.mpi_enabled = self.args['--mpi']
-        if(self.mpi_enabled and not self.ltr_enabled and not self.nonltr_enabled):
-            self.mpi_enabled = str(int(math.ceil(1.0*int(self.args['--mpi'])/2)))
+	if(self.mpi_enabled and not self.ltr_enabled and not self.nonltr_enabled):
+        	self.mpi_enabled = str(int(math.ceil(1.0*int(self.args['--mpi'])/2)))
         self.debug = self.args['--debug']
 
     def set_defaults(self):
@@ -97,13 +97,13 @@ class MGEScan(object):
             os.environ['MGESCAN_SRC'] = os.environ.get("MGESCAN_HOME") + "/src"
         if not os.environ.get('MGESCAN_SRC'):
             print ("MGEScan environment variable is not defined or .mgescanrc is not sourced.")
-            print((os.environ.get("HOME")+"/mgescan3 (default path) is used"+ \
-            " to run MGEScan"))
+            print (os.environ.get("HOME")+"/mgescan3 (default path) is used"+ \
+            " to run MGEScan")
             os.environ['MGESCAN_HOME'] = os.environ.get("HOME")+"/mgescan3"
             os.environ['MGESCAN_SRC'] = os.environ.get("MGESCAN_HOME") + "/src"
             if not os.path.exists(os.environ.get("MGESCAN_SRC")):
-                print((os.environ.get("MGESCAN_SRC") + " does not exist." + \
-                " MGEScan stopped"))
+                print (os.environ.get("MGESCAN_SRC") + " does not exist." + \
+                " MGEScan stopped")
                 sys.exit(-1)
         self.base_path = os.environ.get('MGESCAN_SRC') + "/mgescan"
         self.hmmerv = os.environ.get("MGESCAN_HMMER_VERSION") or self.hmmerv
@@ -116,11 +116,11 @@ class MGEScan(object):
         self.len_condition = os.environ.get("MGESCAN_MIN_LENGTH") or self.len_condition
         self.sw_rm = os.environ.get("MGESCAN_REPEATMASKER") or self.sw_rm
         self.scaffold = os.environ.get("MGESCAN_SCAFFOLD_DIR") or self.scaffold
-
+         
     def set_debug(self):
         if self.debug:
             os.environ["MGESCAN_DEBUG"] = "True"
-
+           
     def wrapper_split_files(self):
         split = Split()
         split.set_input(self.genome_dir)
@@ -149,7 +149,7 @@ class MGEScan(object):
         shutil.rmtree(self.genome_dir)
 
     def ltr(self):
-        print('ltr: starting')
+        print 'ltr: starting'
         start = time.time()
 
         # scaffold
@@ -184,11 +184,11 @@ class MGEScan(object):
         res2 = self.run_cmd(cmd2)
 
         end = time.time()
-        print(('ltr: finishing (elapsed time: {0} secs)'.format(int(round(end -
-            start)))))
+        print ('ltr: finishing (elapsed time: {0} secs)'.format(int(round(end -
+            start))))
 
     def nonltr(self):
-        print('nonltr: starting')
+        print 'nonltr: starting'
         start = time.time()
 
         # nonltr
@@ -204,7 +204,7 @@ class MGEScan(object):
             #cmd0 = (cmd0 + " -mpi=%(mpi_enabled)s")
             cmd0 = (cmd0 + " --mpi=%(mpi_enabled)s")
         res0 = self.run_cmd(cmd0)
-
+        
         # gff3
         self.nonltr_out_path = utils.get_abspath(self.data_dir + "/info/full/")
         self.nonltr_gff_path = utils.get_abspath(self.data_dir + "/info/nonltr.gff3")
@@ -212,8 +212,8 @@ class MGEScan(object):
         res1 = self.run_cmd(cmd1)
 
         end = time.time()
-        print(('nonltr: finishing (elapsed time: {0} secs)'.format(int(round(end -
-            start)))))
+        print ('nonltr: finishing (elapsed time: {0} secs)'.format(int(round(end -
+            start))))
 
     def run_cmd(self, cmd):
         cmd = cmd % vars(self)
@@ -224,12 +224,12 @@ class MGEScan(object):
         try:
             retcode = check_call(cmd.split())
             if retcode != 0:
-                print("%s was terminated by signal" % cmd, -retcode, file=sys.stderr)
+                print >>sys.stderr, "%s was terminated by signal" % cmd, -retcode
             #else:
             #    print >>sys.stderr, "Returned", retcode
         except OSError as e:
-            print("Failed:", e, file=sys.stderr)
-        return retcode
+            print >>sys.stderr, "Failed:", e
+	return retcode
 
 def main():
     arguments = docopt(__doc__, version='MGEScan 3.0.0')
